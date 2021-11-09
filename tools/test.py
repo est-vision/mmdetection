@@ -104,9 +104,8 @@ def parse_args():
     return args
 
 
-def main():
-    args = parse_args()
-
+def main(args):
+    print(args)
     assert args.out or args.eval or args.format_only or args.show \
         or args.show_dir, \
         ('Please specify at least one operation (save/eval/format/show the '
@@ -235,4 +234,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    args = parse_args()
+    print(args)
+    main(args)

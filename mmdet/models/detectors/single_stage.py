@@ -132,6 +132,8 @@ class SingleStageDetector(BaseDetector):
         feats = self.extract_feats(imgs)
         results_list = self.bbox_head.aug_test(
             feats, img_metas, rescale=rescale)
+        if type(results_list) != list:
+            results_list = [results_list]
         bbox_results = [
             bbox2result(det_bboxes, det_labels, self.bbox_head.num_classes)
             for det_bboxes, det_labels in results_list
